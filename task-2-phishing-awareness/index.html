@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PhishGuard - Professional interactive cybersecurity training platform for recognizing, inspecting, and defending against phishing attacks. CodeAlpha Cyber Security Internship Task 2.">
+  <meta name="theme-color" content="#090d16">
+  <title>PhishGuard | Phishing Awareness &amp; Threat Defense Simulator</title>
+  
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="sr-only-focusable" style="position: absolute; top: -100px; left: 1rem; z-index: 999; background: #3b82f6; color: #fff; padding: 0.5rem 1rem; border-radius: 4px; transition: top 0.2s;" onfocus="this.style.top='1rem'" onblur="this.style.top='-100px'">
+    Skip to main content
+  </a>
+
+  <!-- Global Navigation Header -->
+  <header class="site-header" role="banner">
+    <div class="container navbar">
+      <a href="#hero" class="brand-link" aria-label="PhishGuard Cybersecurity Training Homepage">
+        <span class="brand-shield-icon" aria-hidden="true">🛡️</span>
+        <div class="brand-text-col">
+          <span class="brand-title">PhishGuard <span style="font-weight: 400; opacity: 0.8;">Defense</span></span>
+          <span class="brand-subtitle">CodeAlpha Cybersecurity</span>
+        </div>
+      </a>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button 
+        type="button" 
+        class="mobile-toggle" 
+        id="mobile-menu-toggle" 
+        aria-label="Toggle navigation menu" 
+        aria-expanded="false" 
+        aria-controls="nav-menu-links"
+      >
+        ☰
+      </button>
+
+      <!-- Navigation Menu -->
+      <nav id="nav-menu-links" aria-label="Primary Site Navigation">
+        <ul class="nav-links-menu">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#lessons">Lessons</a></li>
+          <li><a href="#inspector">Threat Inspector</a></li>
+          <li><a href="#checklist">Safety Checklist</a></li>
+          <li><a href="#quiz">Interactive Quiz</a></li>
+          <li><a href="#runbook">Incident Runbook</a></li>
+          <li><a href="#references">References</a></li>
+        </ul>
+      </nav>
+
+      <!-- Actions: Theme Toggle -->
+      <div class="nav-actions">
+        <button 
+          type="button" 
+          class="theme-btn" 
+          id="theme-toggle-btn" 
+          aria-label="Switch between dark and light color theme"
+        >
+          <span id="theme-toggle-icon" aria-hidden="true">☀️</span>
+          <span id="theme-toggle-text">Light Mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Landmark -->
+  <main id="main-content" role="main">
+
+    <!-- Hero / Introduction Section -->
+    <section id="hero" class="hero-section" aria-labelledby="hero-main-title">
+      <div class="container">
+        <div class="hero-badge-pill">
+          <span class="pulse-dot" aria-hidden="true">●</span>
+          <span>CodeAlpha Cyber Security Internship • Task 2 Assignment</span>
+        </div>
+        <h1 id="hero-main-title" class="hero-title">
+          Master the Science of <br>
+          <span class="text-gradient">Phishing Awareness &amp; Defense</span>
+        </h1>
+        <p class="hero-subtitle">
+          Over 90% of all organizational cyber breaches begin with a social engineering message. 
+          Learn to dissect deceptive emails, identify fraudulent SMS alerts, inspect weaponized attachments, 
+          and execute rapid containment procedures through interactive simulations.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#inspector" class="btn-primary">
+            🔍 Launch Threat Inspector
+          </a>
+          <a href="#quiz" class="btn-secondary">
+            🎯 Take Phishing Quiz
+          </a>
+          <a href="#checklist" class="btn-secondary">
+            📋 Verification Checklist
+          </a>
+        </div>
+
+        <!-- Live Cyber Statistics Bar -->
+        <div class="hero-stat-grid" role="region" aria-label="Cybersecurity Threat Statistics">
+          <div class="stat-card">
+            <div class="stat-number">3.4B</div>
+            <div class="stat-label">Phishing Emails Sent Daily Globally</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">91%</div>
+            <div class="stat-label">Of Cyber Attacks Start with Phishing</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">3.2x</div>
+            <div class="stat-label">Increase in Quishing (QR Phishing) in 2025-2026</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Harmless Client-Side Educational Sandbox</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="section-padding" aria-labelledby="overview-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Defense Architecture</span>
+          <h2 id="overview-heading" class="section-heading">Why Phishing Training is Critical</h2>
+          <p class="section-lead">
+            Modern cyber threats exploit human cognitive shortcuts rather than software vulnerabilities alone. 
+            Understanding the psychological manipulation techniques and technical red flags transforms every individual into an active security sensor.
+          </p>
+        </div>
+
+        <div class="runbook-steps-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+          <div class="runbook-step-card">
+            <div class="step-number-badge">1</div>
+            <h3 class="step-card-title">Human-Centric Defense</h3>
+            <p class="step-card-desc">Firewalls and email filters block millions of automated attacks, but targeted spear-phishing messages inevitably reach inboxes. Human awareness is the definitive line of defense.</p>
+            <div class="step-key-action"><strong>Goal:</strong> Develop instinctive skepticism and safe inspection habits.</div>
+          </div>
+          <div class="runbook-step-card">
+            <div class="step-number-badge">2</div>
+            <h3 class="step-card-title">Technical Verification</h3>
+            <p class="step-card-desc">Learn how to read domain names, understand email authentication protocols (SPF, DKIM, DMARC), and safely preview URLs without triggering malicious payloads.</p>
+            <div class="step-key-action"><strong>Goal:</strong> Differentiate authentic communications from lookalike replicas.</div>
+          </div>
+          <div class="runbook-step-card">
+            <div class="step-number-badge">3</div>
+            <h3 class="step-card-title">Immediate Incident Response</h3>
+            <p class="step-card-desc">Mistakes happen. Knowing exactly what containment steps to take within the first 5 minutes of entering credentials prevents organizational lateral movement and data theft.</p>
+            <div class="step-key-action"><strong>Goal:</strong> Rapid containment, session revocation, and forensic preservation.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Educational Lessons Section -->
+    <section id="lessons" class="section-padding" style="background-color: var(--bg-secondary);" aria-labelledby="lessons-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Comprehensive Knowledge Base</span>
+          <h2 id="lessons-heading" class="section-heading">Phishing Awareness Curriculum</h2>
+          <p class="section-lead">
+            Explore 6 structured instructional modules designed according to CISA, FTC, and NIST cybersecurity standards.
+          </p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="lessons-filter-bar" role="toolbar" aria-label="Filter Lessons by Category">
+          <button type="button" class="lesson-filter-btn active" data-category="all">All Modules</button>
+          <button type="button" class="lesson-filter-btn" data-category="fundamentals">Fundamentals</button>
+          <button type="button" class="lesson-filter-btn" data-category="vectors">Attack Vectors</button>
+          <button type="button" class="lesson-filter-btn" data-category="redflags">Warning Signs</button>
+          <button type="button" class="lesson-filter-btn" data-category="psychology">Social Engineering</button>
+          <button type="button" class="lesson-filter-btn" data-category="defense">Verification &amp; IR</button>
+        </div>
+
+        <!-- Lessons Cards Grid -->
+        <div class="lessons-grid">
+
+          <!-- Module 1: What is Phishing & Lifecycle -->
+          <article class="lesson-card" data-lesson-category="fundamentals">
+            <div class="lesson-card-top">
+              <span class="lesson-module-tag">Module 01</span>
+              <span class="lesson-read-time">⏱️ 4 min read</span>
+            </div>
+            <h3 class="lesson-title">What is Phishing &amp; How Attacks Work</h3>
+            <p class="lesson-summary">
+              Phishing is a deceptive social engineering attack where malicious actors impersonate trusted entities to trick individuals into divulging sensitive data or executing unauthorized actions.
+            </p>
+            <div class="lesson-content-details">
+              <h4>The 5 Stages of the Phishing Lifecycle:</h4>
+              <ol>
+                <li><strong>Reconnaissance:</strong> Harvesting names, email patterns, job titles, and vendor relationships from LinkedIn, company websites, and social media.</li>
+                <li><strong>Weaponization:</strong> Registering lookalike domains, setting up fraudulent credential harvesting landing pages, or crafting weaponized attachments.</li>
+                <li><strong>Delivery &amp; Lure:</strong> Dispatching lures via mass spam, spear-phishing emails, SMS messages (smishing), or QR codes.</li>
+                <li><strong>Exploitation &amp; Harvesting:</strong> Capturing login credentials, session cookies, multi-factor codes, or executing trojan payloads.</li>
+                <li><strong>Action on Objectives:</strong> Account takeover, exfiltration of corporate intellectual property, wire fraud, or ransomware deployment.</li>
+              </ol>
+            </div>
+            <div class="lesson-takeaway-box">
+              <strong>Core Rule:</strong> Phishing is never just a technical flaw; it is an orchestrated campaign exploiting trust, routine, and cognitive bias.
+            </div>
+          </article>
+
+          <!-- Module 2: Attack Vectors & Variants -->
+          <article class="lesson-card" data-lesson-category="vectors">
+            <div class="lesson-card-top">
+              <span class="lesson-module-tag">Module 02</span>
+              <span class="lesson-read-time">⏱️ 5 min read</span>
+            </div>
+            <h3 class="lesson-title">Common Attack Vectors &amp; Formats</h3>
+            <p class="lesson-summary">
+              Phishing attacks have expanded far beyond untargeted email spam into sophisticated multi-channel vectors targeting mobile devices and physical environments.
+            </p>
+            <div class="lesson-content-details">
+              <h4>Primary Attack Classifications:</h4>
+              <ul>
+                <li><strong>Email Phishing (Mass Spam vs Spear Phishing):</strong> Mass campaigns target thousands with generic lures, while spear-phishing targets specific employees with customized corporate context.</li>
+                <li><strong>Whaling / CEO Fraud (BEC):</strong> Impersonating high-level executives or legal counsel to authorize emergency wire transfers or vendor account changes.</li>
+                <li><strong>Smishing (SMS Phishing):</strong> Text messages claiming urgent delivery exceptions, toll violations, or bank fraud alerts, capitalizing on mobile screen limitations.</li>
+                <li><strong>Vishing (Voice Phishing):</strong> Phone calls from fake IT Helpdesk representatives requesting password resets or remote desktop access.</li>
+                <li><strong>Quishing (QR Code Phishing):</strong> Malicious QR codes printed on breakroom flyers or embedded as images in emails to bypass corporate text filters.</li>
+              </ul>
+            </div>
+            <div class="lesson-takeaway-box">
+              <strong>Core Rule:</strong> Attack vectors vary, but they all share a common mechanism: prompting you to visit an unverified portal or run an untrusted file.
+            </div>
+          </article>
+
+          <!-- Module 3: Anatomy of Warning Signs & Red Flags -->
+          <article class="lesson-card" data-lesson-category="redflags">
+            <div class="lesson-card-top">
+              <span class="lesson-module-tag">Module 03</span>
+              <span class="lesson-read-time">⏱️ 6 min read</span>
+            </div>
+            <h3 class="lesson-title">Anatomy of Warning Signs (Red Flags)</h3>
+            <p class="lesson-summary">
+              Deceptive messages leave discernible digital fingerprints. Knowing what to examine enables you to recognize an attack within seconds.
+            </p>
+            <div class="lesson-content-details">
+              <h4>Key Indicators to Scrutinize:</h4>
+              <ul>
+                <li><strong>Display Name Spoofing:</strong> The friendly name reads "Corporate IT Support", but the real email address is on an unrecognized external domain.</li>
+                <li><strong>Lookalike Domains (Typosquatting):</strong> Substituting letters (<code>micros0ft.com</code>, <code>paypa1.com</code>) or adding misleading prefixes (<code>chase.com.verification-auth.invalid</code>).</li>
+                <li><strong>Hyperlink Deception:</strong> Anchor text displays a legitimate URL (<code>https://mybank.com</code>), but hovering reveals an external destination.</li>
+                <li><strong>Suspicious Attachments:</strong> Macro-enabled Office files (<code>.xlsm</code>, <code>.docm</code>), disguised archives (<code>.iso</code>, <code>.vhd</code>), or double extensions (<code>Invoice.pdf.exe</code>).</li>
+                <li><strong>Generic Salutations &amp; Errors:</strong> Greetings like "Dear Customer" or "Dear Employee" combined with awkward phrasing or artificial urgency.</li>
+              </ul>
+            </div>
+            <div class="lesson-takeaway-box">
+              <strong>Core Rule:</strong> Always check the actual domain after the <code>@</code> in the sender address and hover over links to inspect the true destination.
+            </div>
+          </article>
+
+          <!-- Module 4: Psychology of Social Engineering -->
+          <article class="lesson-card" data-lesson-category="psychology">
+            <div class="lesson-card-top">
+              <span class="lesson-module-tag">Module 04</span>
+              <span class="lesson-read-time">⏱️ 4 min read</span>
+            </div>
+            <h3 class="lesson-title">Social Engineering &amp; Psychological Triggers</h3>
+            <p class="lesson-summary">
+              Attackers weaponize Robert Cialdini's principles of persuasion to create emotional states that bypass logical scrutiny and analytical thinking.
+            </p>
+            <div class="lesson-content-details">
+              <h4>The 6 Core Cognitive Exploits:</h4>
+              <ul>
+                <li><strong>Manufactured Urgency:</strong> Countdowns and deadlines ("Account terminates in 2 hours") force impulsive actions.</li>
+                <li><strong>Appeals to Authority:</strong> Impersonating CEOs, law enforcement, tax agencies, or corporate IT executives to exploit deference.</li>
+                <li><strong>Fear &amp; Intimidation:</strong> Threatening lawsuits, termination, or credit ruin to provoke anxiety.</li>
+                <li><strong>Greed &amp; Curiosity:</strong> Offering unexpected bonuses, tax rebates, gift cards, or confidential payroll leaks.</li>
+                <li><strong>Helpfulness &amp; Sympathy:</strong> Posing as an overburdened colleague or stranded executive in distress.</li>
+              </ul>
+            </div>
+            <div class="lesson-takeaway-box">
+              <strong>Core Rule:</strong> Whenever a message sparks strong emotion—fear, panic, excitement, or urgency—hit the mental pause button and verify.
+            </div>
+          </article>
+
+          <!-- Module 5: Technical Verification Protocols -->
+          <article class="lesson-card" data-lesson-category="defense">
+            <div class="lesson-card-top">
+              <span class="lesson-module-tag">Module 05</span>
+              <span class="lesson-read-time">⏱️ 5 min read</span>
+            </div>
+            <h3 class="lesson-title">Technical Verification Protocols</h3>
+            <p class="lesson-summary">
+              Relying on intuition is insufficient. Implementing structured technical validation techniques ensures you never get fooled by spoofed communications.
+            </p>
+            <div class="lesson-content-details">
+              <h4>Essential Verification Methods:</h4>
+              <ul>
+                <li><strong>The HTTPS Padlock Fallacy:</strong> HTTPS only encrypts communication; it does not validate ownership. Over 80% of active phishing websites now use valid SSL/TLS certificates.</li>
+                <li><strong>Email Authentication (SPF, DKIM, DMARC):</strong> SPF authorizes IP senders, DKIM validates cryptographic signatures, and DMARC specifies enforcement. However, they do not stop newly registered lookalike domains.</li>
+                <li><strong>URL Parsing Discipline:</strong> Identify the Root Domain. In <code>login.example.com.phish.test</code>, the true domain is <code>phish.test</code>, not <code>example.com</code>.</li>
+                <li><strong>Out-of-Band (OOB) Verification:</strong> Contact the sender via an independent, pre-established phone number or in-person channel—never using contact details inside the suspect message.</li>
+              </ul>
+            </div>
+            <div class="lesson-takeaway-box">
+              <strong>Core Rule:</strong> If an email requests financial transfers, password resets, or sensitive data, mandatory Out-of-Band confirmation is non-negotiable.
+            </div>
+          </article>
+
+          <!-- Module 6: Immediate Incident Response -->
+          <article class="lesson-card" data-lesson-category="defense">
+            <div class="lesson-card-top">
+              <span class="lesson-module-tag">Module 06</span>
+              <span class="lesson-read-time">⏱️ 5 min read</span>
+            </div>
+            <h3 class="lesson-title">Incident Response &amp; Remediation</h3>
+            <p class="lesson-summary">
+              What you do in the first five minutes after suspecting a compromise can mean the difference between an isolated error and an enterprise-wide catastrophe.
+            </p>
+            <div class="lesson-content-details">
+              <h4>Immediate Incident Playbook:</h4>
+              <ol>
+                <li><strong>If you only received a suspicious message:</strong> Do not click, forward original message with full headers (<code>.eml</code>) to your IT/SOC team, and delete.</li>
+                <li><strong>If you clicked a link or entered credentials:</strong>
+                  <ul>
+                    <li>Immediately change the compromised password from a separate, clean device.</li>
+                    <li>Disconnect the affected workstation from Wi-Fi and Ethernet (do NOT power off, to preserve RAM evidence).</li>
+                    <li>Notify IT Security immediately so they can revoke active session tokens and check audit logs.</li>
+                    <li>If financial details were entered, immediately contact your banking institution to freeze cards/accounts.</li>
+                  </ul>
+                </li>
+              </ol>
+            </div>
+            <div class="lesson-takeaway-box">
+              <strong>Core Rule:</strong> Never conceal an accidental click. Prompt reporting allows security defenders to remediate before adversaries exploit access.
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Realistic Educational Examples (Threat Inspector Simulator) -->
+    <section id="inspector" class="section-padding" aria-labelledby="inspector-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Interactive Sandbox</span>
+          <h2 id="inspector-heading" class="section-heading">Realistic Threat Inspector</h2>
+          <p class="section-lead">
+            Dissect real-world phishing scenarios rendered in simulated environments. 
+            Click on highlighted hotspots or select warning signs to inspect the threat mechanics and defensive actions.
+          </p>
+        </div>
+
+        <!-- Scenario Selector Tabs -->
+        <div class="inspector-tabs-row" id="scenario-tabs-container" role="tablist" aria-label="Select Phishing Simulation Scenario">
+          <!-- Dynamically populated by scenarios.js / app.js -->
+        </div>
+
+        <!-- Scenario Metadata Header Banner -->
+        <div class="scenario-meta-banner" id="scenario-meta-header">
+          <!-- Dynamically rendered -->
+        </div>
+
+        <!-- Main Split Workspace: Mockup Frame vs Red Flags & Analysis Sidebar -->
+        <div class="inspector-layout-grid">
+          
+          <!-- Mockup Target Container -->
+          <div id="scenario-mockup-target">
+            <!-- Dynamically populated -->
+          </div>
+
+          <!-- Inspector Sidebar: Detected Flags List & Deep-Dive Card -->
+          <div class="inspector-sidebar">
+            <div class="flags-sidebar-container" id="red-flags-list-target">
+              <!-- Dynamically populated -->
+            </div>
+
+            <div id="red-flag-analysis-target">
+              <!-- Deep-dive card rendered on hotspot click -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Practical Safety Checklist & Risk Calculator -->
+    <section id="checklist" class="section-padding" style="background-color: var(--bg-secondary);" aria-labelledby="checklist-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Decision Framework</span>
+          <h2 id="checklist-heading" class="section-heading">Interactive Verification Checklist</h2>
+          <p class="section-lead">
+            Evaluate any suspicious message before clicking links, opening attachments, or replying. 
+            Test the criteria below to generate a real-time risk assessment score.
+          </p>
+        </div>
+
+        <div class="checklist-layout-grid">
+          <!-- Interactive Checklist Form -->
+          <div class="checklist-card" role="form" aria-label="Pre-Interaction Safety Verification Checklist">
+            <div class="checklist-items-container">
+
+              <label class="checklist-item-row">
+                <input type="checkbox" class="checklist-checkbox" id="check-sender" />
+                <div class="checklist-text-col">
+                  <span class="checklist-item-title">1. Genuine Sender Address Verified</span>
+                  <span class="checklist-item-desc">I inspected the actual email address after the <code>@</code> symbol (not just the display name), and confirmed it matches the authentic organization domain with no typosquatting.</span>
+                </div>
+              </label>
+
+              <label class="checklist-item-row">
+                <input type="checkbox" class="checklist-checkbox" id="check-urgency" />
+                <div class="checklist-text-col">
+                  <span class="checklist-item-title">2. Absence of Manufactured Urgency or Threats</span>
+                  <span class="checklist-item-desc">The message does not employ coercive language, strict countdown deadlines ("within 24 hours"), or threats of immediate account termination or legal penalty.</span>
+                </div>
+              </label>
+
+              <label class="checklist-item-row">
+                <input type="checkbox" class="checklist-checkbox" id="check-link" />
+                <div class="checklist-text-col">
+                  <span class="checklist-item-title">3. Destination Links Inspected via Hover</span>
+                  <span class="checklist-item-desc">I hovered over all hyperlinks without clicking. The destination domain in the browser status bar exactly matches the official second-level domain of the legitimate service.</span>
+                </div>
+              </label>
+
+              <label class="checklist-item-row">
+                <input type="checkbox" class="checklist-checkbox" id="check-attachment" />
+                <div class="checklist-text-col">
+                  <span class="checklist-item-title">4. Attachment Safety Confirmed</span>
+                  <span class="checklist-item-desc">The message contains no unexpected macro-enabled files (<code>.xlsm</code>, <code>.docm</code>), container archives (<code>.iso</code>, <code>.zip</code>), or executables, and the attachment was explicitly expected.</span>
+                </div>
+              </label>
+
+              <label class="checklist-item-row">
+                <input type="checkbox" class="checklist-checkbox" id="check-credentials" />
+                <div class="checklist-text-col">
+                  <span class="checklist-item-title">5. No Requests for Sensitive Data or Credentials</span>
+                  <span class="checklist-item-desc">The communication does not ask for passwords, multi-factor authentication codes, Social Security numbers, banking details, or gift card purchases.</span>
+                </div>
+              </label>
+
+              <label class="checklist-item-row">
+                <input type="checkbox" class="checklist-checkbox" id="check-context" />
+                <div class="checklist-text-col">
+                  <span class="checklist-item-title">6. Contextual Consistency &amp; Out-of-Band Readiness</span>
+                  <span class="checklist-item-desc">The communication aligns with normal business processes, addresses me by full name, and if in doubt, I am prepared to verify it via a trusted independent channel.</span>
+                </div>
+              </label>
+
+            </div>
+
+            <div class="checklist-card-footer">
+              <span class="checklist-counter-display" id="checklist-counter-text"><strong>0</strong> of 6 verification steps satisfied</span>
+              <button type="button" class="btn-sm btn-subtle" id="reset-checklist-btn">Reset Checklist</button>
+            </div>
+          </div>
+
+          <!-- Dynamic Risk Meter & Verdict Card -->
+          <div class="checklist-status-sidebar">
+            <div class="checklist-meter-box">
+              <h3 class="meter-heading">Safety Readiness Indicator</h3>
+              <div class="checklist-meter-bg">
+                <div class="checklist-meter-fill" id="checklist-meter-fill" style="width: 0%;"></div>
+              </div>
+            </div>
+
+            <div id="checklist-verdict-target">
+              <!-- Dynamically rendered verdict -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Phishing Quiz -->
+    <section id="quiz" class="section-padding quiz-section" aria-labelledby="quiz-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Knowledge Evaluation</span>
+          <h2 id="quiz-heading" class="section-heading">Interactive Phishing Defense Quiz</h2>
+          <p class="section-lead">
+            Test your ability to spot deceptive lures, dissect attack mechanisms, and execute proper incident protocols. 
+            Receive immediate feedback and explanations for every scenario.
+          </p>
+        </div>
+
+        <!-- Quiz Container Target -->
+        <div id="quiz-engine-target">
+          <!-- Dynamically populated by quiz.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Incident Response Runbook Section -->
+    <section id="runbook" class="section-padding runbook-section" aria-labelledby="runbook-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Emergency Action Protocol</span>
+          <h2 id="runbook-heading" class="section-heading">Post-Incident Response Runbook</h2>
+          <p class="section-lead">
+            Follow this structured incident response sequence if you suspect you or a colleague interacted with a phishing lure.
+          </p>
+        </div>
+
+        <div class="runbook-steps-grid">
+          <div class="runbook-step-card">
+            <div class="step-number-badge">Step 1</div>
+            <h3 class="step-card-title">Isolate &amp; Disconnect</h3>
+            <p class="step-card-desc">Disconnect the affected device from Wi-Fi and unplug the Ethernet cable immediately. This halts lateral network traversal, C2 beaconing, and automated data exfiltration.</p>
+            <div class="step-key-action"><strong>Rule:</strong> Do NOT power off or reboot the system; doing so destroys volatile RAM forensic memory.</div>
+          </div>
+
+          <div class="runbook-step-card">
+            <div class="step-number-badge">Step 2</div>
+            <h3 class="step-card-title">Rotate Credentials</h3>
+            <p class="step-card-desc">From a completely separate, trusted, uncompromised device, immediately change the password for the affected account. Change any identical passwords on other services.</p>
+            <div class="step-key-action"><strong>Rule:</strong> Utilize a strong, unique 16+ character passphrase or password manager.</div>
+          </div>
+
+          <div class="runbook-step-card">
+            <div class="step-number-badge">Step 3</div>
+            <h3 class="step-card-title">Revoke Active Sessions</h3>
+            <p class="step-card-desc">Log into your account security settings and select "Sign out of all sessions" to invalidate active OAuth tokens and session cookies hijacked by attackers.</p>
+            <div class="step-key-action"><strong>Rule:</strong> Re-verify your registered Multi-Factor Authentication (MFA) devices and phone numbers.</div>
+          </div>
+
+          <div class="runbook-step-card">
+            <div class="step-number-badge">Step 4</div>
+            <h3 class="step-card-title">Notify Security / IT</h3>
+            <p class="step-card-desc">Contact your organization's IT Helpdesk or SOC immediately. Forward the raw phishing message as an attachment (<code>.eml</code>) so headers and payloads can be analyzed.</p>
+            <div class="step-key-action"><strong>Rule:</strong> Never feel ashamed or delay reporting; early notification saves organizations millions.</div>
+          </div>
+
+          <div class="runbook-step-card">
+            <div class="step-number-badge">Step 5</div>
+            <h3 class="step-card-title">Report &amp; Protect</h3>
+            <p class="step-card-desc">If personal financial or identity information was shared, immediately contact your bank to freeze cards and place a fraud alert on credit bureaus (Experian, Equifax, TransUnion).</p>
+            <div class="step-key-action"><strong>Rule:</strong> File an official complaint with <a href="https://reportfraud.ftc.gov" target="_blank" rel="noopener noreferrer">FTC ReportFraud</a> and <a href="https://www.cisa.gov" target="_blank" rel="noopener noreferrer">CISA</a>.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- References & Citations Section -->
+    <section id="references" class="section-padding" aria-labelledby="references-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Authoritative Sources</span>
+          <h2 id="references-heading" class="section-heading">Cybersecurity References &amp; Standards</h2>
+          <p class="section-lead">
+            Curriculum content is verified and aligned with official institutional frameworks and RFC specifications.
+          </p>
+        </div>
+
+        <div class="references-grid">
+          <div class="reference-card">
+            <span class="ref-org-tag">CISA (CYBERSECURITY &amp; INFRASTRUCTURE SECURITY AGENCY)</span>
+            <h3 class="ref-title">Secure Our World: Recognize &amp; Report Phishing</h3>
+            <p class="ref-desc">Official United States federal guidelines on recognizing deceptive messages, enabling MFA, and enterprise incident reporting.</p>
+            <a href="https://www.cisa.gov/secure-our-world/recognize-and-report-phishing" target="_blank" rel="noopener noreferrer" class="ref-link-action">
+              Visit Official CISA Guidance ↗
+            </a>
+          </div>
+
+          <div class="reference-card">
+            <span class="ref-org-tag">FTC (FEDERAL TRADE COMMISSION)</span>
+            <h3 class="ref-title">How to Recognize and Avoid Phishing Scams</h3>
+            <p class="ref-desc">Consumer and corporate protection standards regarding SMS phishing, fake invoices, and post-compromise identity protection.</p>
+            <a href="https://consumer.ftc.gov/articles/how-recognize-and-avoid-phishing-scams" target="_blank" rel="noopener noreferrer" class="ref-link-action">
+              Visit Official FTC Guidance ↗
+            </a>
+          </div>
+
+          <div class="reference-card">
+            <span class="ref-org-tag">NIST (NATIONAL INSTITUTE OF STANDARDS &amp; TECHNOLOGY)</span>
+            <h3 class="ref-title">SP 800-61 Rev. 2: Incident Handling Guide</h3>
+            <p class="ref-desc">The industry-standard computer security incident handling lifecycle detailing isolation, containment, and forensic triage.</p>
+            <a href="https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final" target="_blank" rel="noopener noreferrer" class="ref-link-action">
+              Visit NIST Publication ↗
+            </a>
+          </div>
+
+          <div class="reference-card">
+            <span class="ref-org-tag">APWG (ANTI-PHISHING WORKING GROUP)</span>
+            <h3 class="ref-title">Phishing Activity Trends &amp; Counter-Measures</h3>
+            <p class="ref-desc">Global threat coalition research analyzing modern phishing volume, mobile vectors, and brand impersonation tactics.</p>
+            <a href="https://apwg.org/trendsreports/" target="_blank" rel="noopener noreferrer" class="ref-link-action">
+              Visit APWG Portal ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-col-about">
+          <div class="brand-link">
+            <span class="brand-shield-icon" aria-hidden="true">🛡️</span>
+            <div class="brand-text-col">
+              <span class="brand-title">PhishGuard Defense</span>
+              <span class="brand-subtitle">CodeAlpha Cybersecurity Internship</span>
+            </div>
+          </div>
+          <p>
+            An interactive, educational cybersecurity training platform engineered for the CodeAlpha Cyber Security Internship (Task 2: Phishing Awareness Training). Designed with HTML5, CSS3, and vanilla JavaScript.
+          </p>
+        </div>
+
+        <div class="footer-col-links">
+          <h4>Curriculum</h4>
+          <ul>
+            <li><a href="#lessons">Core Modules</a></li>
+            <li><a href="#inspector">Threat Inspector</a></li>
+            <li><a href="#checklist">Safety Checklist</a></li>
+            <li><a href="#quiz">Phishing Quiz</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col-links">
+          <h4>Documentation</h4>
+          <ul>
+            <li><a href="README.md" target="_blank">Project README.md</a></li>
+            <li><a href="demo-script.md" target="_blank">Video Demo Script</a></li>
+            <li><a href="references.md" target="_blank">Academic References</a></li>
+            <li><a href="#runbook">Emergency Runbook</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 CodeAlpha Cyber Security Internship. Built for educational demonstration.</div>
+        <div class="disclaimer-badge">🔒 100% Client-Side • Harmless Reserved Domains (RFC 2606) • No Credentials Collected</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Scripts -->
+  <script src="js/scenarios.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

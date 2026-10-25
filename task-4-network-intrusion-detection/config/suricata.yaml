@@ -1,0 +1,74 @@
+%YAML 1.1
+---
+
+# ==============================================================================
+# Suricata Configuration Profile - CodeAlpha Network Intrusion Detection System
+# Optimized for reproducible offline PCAP analysis and lightweight execution
+# ==============================================================================
+
+vars:
+  address-groups:
+    HOME_NET: "[192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,192.0.2.0/24]"
+    EXTERNAL_NET: "!$HOME_NET"
+    HTTP_SERVERS: "$HOME_NET"
+    DNS_SERVERS: "$HOME_NET"
+
+  port-groups:
+    HTTP_PORTS: "80,8080,8000,8888"
+    SSH_PORTS: 22
+
+default-log-dir: ./logs
+
+outputs:
+  - fast:
+      enabled: yes
+      filename: fast.log
+      append: yes
+
+  - eve-log:
+      enabled: yes
+      filetype: regular
+      filename: eve.json
+      pcap-file: false
+      community-id: false
+      types:
+        - alert:
+            payload: yes
+            payload-buffer: yes
+            payload-printable: yes
+            packet: yes
+            metadata: yes
+        - http:
+            extended: yes
+        - dns:
+            version: 2
+        - anomaly:
+            enabled: yes
+
+default-rule-path: ./rules
+rule-files:
+  - local.rules
+
+classification-file: ./config/classification.config
+reference-config-file: ./config/reference.config
+
+app-layer:
+  protocols:
+    http:
+      enabled: yes
+      memcap: 64mb
+    dns:
+      tcp:
+        enabled: yes
+      udp:
+        enabled: yes
+    tls:
+      enabled: yes
+
+stream:
+  memcap: 64mb
+  checksum-validation: no
+  inline: no
+  reassembly:
+    memcap: 64mb
+    depth: 1mb

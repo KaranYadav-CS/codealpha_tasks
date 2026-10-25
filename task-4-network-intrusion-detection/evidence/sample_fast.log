@@ -1,0 +1,7 @@
+10/26/2026-00:27:10.685668  [**] [1:1000001:1] CODEALPHA LAB - Unique Telemetry Lab Marker Detected [**] [Classification: Misc activity] [Priority: 3] {TCP} 192.0.2.10:49153 -> 198.51.100.50:80
+10/26/2026-00:27:10.686955  [**] [1:1000003:1] CODEALPHA LAB - Reconnaissance TCP SYN Port Sweep Probe [**] [Classification: Attempted Information Leak / Reconnaissance] [Priority: 2] {TCP} 192.0.2.100:50002 -> 198.51.100.50:23
+10/26/2026-00:27:10.687918  [**] [1:1000004:1] CODEALPHA LAB - Suspicious TCP XMAS Tree Scan Probe [**] [Classification: Attempted Information Leak / Reconnaissance] [Priority: 2] {TCP} 192.0.2.100:51001 -> 198.51.100.50:80
+10/26/2026-00:27:10.688037  [**] [1:1000005:1] CODEALPHA LAB - Suspicious TCP NULL Scan Probe [**] [Classification: Attempted Information Leak / Reconnaissance] [Priority: 2] {TCP} 192.0.2.100:51002 -> 198.51.100.50:80
+10/26/2026-00:27:10.689342  [**] [1:1000007:1] CODEALPHA LAB - Potential Web Shell Command Execution Detected [**] [Classification: Attempted Administrator Privilege Gain] [Priority: 1] {TCP} 192.0.2.100:49155 -> 198.51.100.50:80
+10/26/2026-00:27:10.686661  [**] [1:1000002:1] CODEALPHA LAB - Suspicious Reconnaissance User-Agent Header [**] [Classification: Attempted Information Leak / Reconnaissance] [Priority: 2] {TCP} 192.0.2.100:49154 -> 198.51.100.50:80
+10/26/2026-00:27:10.688160  [**] [1:1000006:1] CODEALPHA LAB - Suspicious DNS Query to Canary Domain [**] [Classification: Potentially Bad Traffic] [Priority: 2] {UDP} 192.0.2.10:52123 -> 198.51.100.53:53

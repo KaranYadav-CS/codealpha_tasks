@@ -1,0 +1,39 @@
+# ==============================================================================
+# CodeAlpha Internship - .gitignore
+# ==============================================================================
+
+# Python Bytecode & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# Environments & Dependencies
+.env
+.env.*
+env/
+venv/
+ENV/
+.venv/
+
+# OS-specific Files
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# IDE & Editor Directories
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Runtime Generated Logs & Churn
+# Note: Verified sample logs are preserved under evidence/
+task-4-network-intrusion-detection/logs/*.log
+task-4-network-intrusion-detection/logs/*.json
+!task-4-network-intrusion-detection/logs/.gitkeep
+
+# Temporary Files
+*.tmp
+*.bak
+*~

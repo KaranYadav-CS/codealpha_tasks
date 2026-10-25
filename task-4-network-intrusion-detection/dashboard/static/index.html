@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Suricata NIDS Alert Triage Console - CodeAlpha Cyber Security Internship Task 4.">
+  <title>Suricata NIDS | Alert Triage &amp; Incident Console</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Top Navigation Header -->
+  <header class="dashboard-header">
+    <div class="header-container">
+      <div class="brand-block">
+        <span class="brand-icon">🛡️</span>
+        <div class="brand-text">
+          <h1>Suricata NIDS <span class="brand-sub">Alert Triage Console</span></h1>
+          <span class="brand-affiliation">CodeAlpha Cyber Security Internship • Task 4</span>
+        </div>
+      </div>
+
+      <div class="engine-status-bar">
+        <div class="status-indicator-pill" id="engine-status-pill">
+          <span class="status-dot green-pulse">●</span>
+          <span id="engine-status-text">Detecting Engine...</span>
+        </div>
+        <div class="source-badge">
+          <span>SOURCE: </span><strong id="data-source-label">eve.json</strong>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Dashboard Container -->
+  <main class="dashboard-main">
+    <div class="container">
+
+      <!-- Action Toolbar -->
+      <section class="toolbar-section">
+        <div class="toolbar-left">
+          <button type="button" class="btn btn-primary" id="run-analysis-btn">
+            ▶ Run Offline Analysis
+          </button>
+          <button type="button" class="btn btn-secondary" id="refresh-alerts-btn">
+            🔄 Refresh Alerts
+          </button>
+        </div>
+
+        <div class="toolbar-right">
+          <div class="export-dropdown-wrapper">
+            <button type="button" class="btn btn-outline" id="export-btn">
+              📥 Export Alert Report ▾
+            </button>
+            <div class="export-menu" id="export-menu" style="display: none;">
+              <a href="/api/export?format=json" download class="export-item">Download JSON Report</a>
+              <a href="/api/export?format=csv" download class="export-item">Download CSV Table</a>
+              <a href="/api/export?format=text" download class="export-item">Download Text Summary</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Metrics Row -->
+      <section class="metrics-grid" aria-label="Key NIDS Alert Metrics">
+        <div class="metric-card">
+          <div class="metric-label">Total Alert Events</div>
+          <div class="metric-val" id="metric-total">0</div>
+          <div class="metric-sub">From active EVE log</div>
+        </div>
+
+        <div class="metric-card metric-danger">
+          <div class="metric-label">High Severity (Priority 1)</div>
+          <div class="metric-val" id="metric-high">0</div>
+          <div class="metric-sub">Requires immediate triage</div>
+        </div>
+
+        <div class="metric-card metric-warning">
+          <div class="metric-label">Medium Severity (Priority 2)</div>
+          <div class="metric-val" id="metric-medium">0</div>
+          <div class="metric-sub">Reconnaissance &amp; policy alerts</div>
+        </div>
+
+        <div class="metric-card metric-info">
+          <div class="metric-label">Low Severity (Priority 3)</div>
+          <div class="metric-val" id="metric-low">0</div>
+          <div class="metric-sub">Informational &amp; lab markers</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-label">Unique Signatures</div>
+          <div class="metric-val" id="metric-signatures">0</div>
+          <div class="metric-sub">Distinct alert rules triggered</div>
+        </div>
+      </section>
+
+      <!-- Search & Filter Controls -->
+      <section class="filter-bar-card">
+        <div class="search-input-group">
+          <span class="search-icon">🔍</span>
+          <input 
+            type="text" 
+            id="search-input" 
+            placeholder="Search by signature, IP address, port, SID, or payload..." 
+            aria-label="Search alerts"
+          />
+        </div>
+
+        <div class="filters-row">
+          <div class="filter-item">
+            <label for="severity-filter">Severity:</label>
+            <select id="severity-filter">
+              <option value="all">All Severities</option>
+              <option value="High">High (Priority 1)</option>
+              <option value="Medium">Medium (Priority 2)</option>
+              <option value="Low">Low (Priority 3)</option>
+            </select>
+          </div>
+
+          <div class="filter-item">
+            <label for="proto-filter">Protocol:</label>
+            <select id="proto-filter">
+              <option value="all">All Protocols</option>
+              <option value="TCP">TCP</option>
+              <option value="UDP">UDP</option>
+              <option value="ICMP">ICMP</option>
+            </select>
+          </div>
+
+          <button type="button" class="btn btn-sm btn-subtle" id="clear-filters-btn">
+            Clear Filters
+          </button>
+        </div>
+      </section>
+
+      <!-- Alerts Table Section -->
+      <section class="table-section-card">
+        <div class="table-header-row">
+          <h2 class="table-heading">Detected Security Events</h2>
+          <span class="table-count-tag" id="displayed-count-tag">Showing 0 of 0 alerts</span>
+        </div>
+
+        <div class="table-responsive-wrapper">
+          <table class="alerts-table" id="alerts-table">
+            <thead>
+              <tr>
+                <th>Timestamp</th>
+                <th>Severity</th>
+                <th>Proto</th>
+                <th>Source Address</th>
+                <th>Destination Address</th>
+                <th>Signature / Detection Rule</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="alerts-tbody">
+              <!-- Populated dynamically by app.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Empty State Container -->
+        <div class="empty-state-card" id="empty-state" style="display: none;">
+          <div class="empty-icon">📭</div>
+          <h3>No Intrusion Detection Alerts Found</h3>
+          <p id="empty-state-message">The EVE JSON log is currently empty or has not been generated yet.</p>
+          <div class="empty-actions">
+            <button type="button" class="btn btn-primary" id="empty-run-btn">
+              ▶ Generate Lab Traffic &amp; Run Analysis
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Protocol & Top Signatures Breakdown -->
+      <section class="breakdown-grid" id="breakdown-section">
+        <div class="breakdown-card">
+          <h3 class="breakdown-title">Top Triggered Signatures</h3>
+          <ul class="breakdown-list" id="signatures-breakdown-list">
+            <!-- Populated dynamically -->
+          </ul>
+        </div>
+
+        <div class="breakdown-card">
+          <h3 class="breakdown-title">System &amp; Pipeline Architecture</h3>
+          <div class="pipeline-desc-box">
+            <p><strong>Detection Engine:</strong> <span id="pipeline-engine-val">Suricata 7.0.10 RELEASE</span></p>
+            <p><strong>Analysis Mode:</strong> Offline PCAP Inspection (RFC 5737 Lab Data)</p>
+            <p><strong>Configured Rules:</strong> 7 Local Custom Signatures (SIDs 1000001 - 1000007)</p>
+            <p><strong>Event Standard:</strong> Suricata EVE JSON Format (RFC 8259 Compliant)</p>
+            <div class="playbook-callout">
+              <span>📖 Need triage guidance? Consult the <a href="/docs/response_playbook.md" target="_blank">Incident Response Playbook</a>.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Modal Inspector for Raw EVE Event Details -->
+  <div class="modal-backdrop" id="event-modal" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 id="modal-title">EVE JSON Alert Inspector</h3>
+        <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="dashboard-footer">
+    <div class="container footer-content">
+      <span>CodeAlpha Cyber Security Internship • Task 4: Network Intrusion Detection System</span>
+      <span class="safe-badge">🔒 Localhost Only (127.0.0.1) • Synthetic RFC 5737 Lab Traffic</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
